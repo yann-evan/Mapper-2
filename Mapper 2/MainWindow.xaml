@@ -4,9 +4,39 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mapper_2"
+        xmlns:controls="clr-namespace:DmxUserControlLib;assembly=DmxUserControlLib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="auto" Width="auto"
+        Background="DarkGray" Closing="Window_Closing" BorderBrush="Black" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Launchpad Map :" Grid.Column="0" Grid.Row="0"/>
+        <controls:LaunchpadMap x:Name="launchpadmap" Grid.Row="1" Grid.Column="0" BorderBrush="Gray" BorderThickness="1" Margin="10" Background="Black"/>
+        <Label Content="Propriétés :" Grid.Column="1" Grid.Row="0"/>
+        <controls:LaunchpadBTProperty x:Name="LPBproperty" Grid.Row="1" Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="10" BT_Valid_Click="LPBproperty_BT_Valid_Click"/>
+
+        <Grid Grid.Column="0" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="MapName_TextBox" Grid.Column="0" Width="70" Margin="10"/>
+            <Button x:Name="New_Button" Grid.Column="1" Width="70" Content="New" Margin="10" Click="New_Button_Click"/>
+            <Button x:Name="Open_button" Grid.Column="2" Width="70" Content="Open" Margin="10" Click="Open_button_Click"/>
+            <Button x:Name="Save_Button" Grid.Column="3" Width="70" Content="Save" Margin="10" Click="Save_Button_Click"/>
+
+        </Grid>
     </Grid>
 </Window>
